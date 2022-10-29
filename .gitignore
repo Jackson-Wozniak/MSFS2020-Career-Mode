@@ -1,0 +1,8 @@
+.mvn/
+.idea/
+src/main/resources/application.properties
+target/
+flight_sim_career_mode.iml
+HELP.md
+mvnw
+mvnw.cmd
