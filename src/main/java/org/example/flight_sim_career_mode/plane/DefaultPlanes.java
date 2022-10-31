@@ -1,4 +1,6 @@
-package org.example.flight_sim_career_mode;
+package org.example.flight_sim_career_mode.plane;
+
+import org.example.flight_sim_career_mode.pilot.enums.License;
 
 import java.util.ArrayList;
 import java.util.List;
