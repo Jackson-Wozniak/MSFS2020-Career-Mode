@@ -26,4 +26,12 @@ public enum License {
             case COMMERCIAL_PILOT -> 60_000.0;
         };
     }
+
+    public double getHourlyPayout(){
+        return switch (this){
+            case LOCAL_PILOT -> 1000.0;
+            case PRO_PILOT -> 5_000.0;
+            case COMMERCIAL_PILOT -> 10_000.0;
+        };
+    }
 }
