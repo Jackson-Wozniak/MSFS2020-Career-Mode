@@ -1,9 +1,9 @@
 package org.example.flight_sim_career_mode.flight.airport.service;
 
 import lombok.AllArgsConstructor;
-import org.example.flight_sim_career_mode.flight.airport.repository.AirportRepository;
 import org.example.flight_sim_career_mode.flight.airport.entity.Airport;
 import org.example.flight_sim_career_mode.flight.airport.exception.AirportException;
+import org.example.flight_sim_career_mode.flight.airport.repository.AirportRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

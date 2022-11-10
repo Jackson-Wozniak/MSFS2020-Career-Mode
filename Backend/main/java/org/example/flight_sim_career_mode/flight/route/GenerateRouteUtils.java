@@ -1,11 +1,6 @@
 package org.example.flight_sim_career_mode.flight.route;
 
 import org.example.flight_sim_career_mode.flight.airport.entity.Airport;
-import org.example.flight_sim_career_mode.pilot.enums.License;
-import org.example.flight_sim_career_mode.flight.plane.Plane;
-
-import java.util.ArrayList;
-import java.util.Random;
 
 public class GenerateRouteUtils {
 

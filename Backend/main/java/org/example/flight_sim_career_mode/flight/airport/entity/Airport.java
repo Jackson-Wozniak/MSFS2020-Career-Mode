@@ -1,10 +1,5 @@
 package org.example.flight_sim_career_mode.flight.airport.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
