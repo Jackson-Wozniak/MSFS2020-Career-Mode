@@ -1,4 +1,4 @@
-package org.example.flight_sim_career_mode.plane;
+package org.example.flight_sim_career_mode.flight.plane;
 
 import org.example.flight_sim_career_mode.pilot.enums.License;
 

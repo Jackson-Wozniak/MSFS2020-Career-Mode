@@ -1,4 +1,4 @@
-package org.example.flight_sim_career_mode.airport.entity;
+package org.example.flight_sim_career_mode.flight.airport.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

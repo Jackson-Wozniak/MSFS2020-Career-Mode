@@ -1,10 +1,10 @@
-package org.example.flight_sim_career_mode.flightgenerator;
+package org.example.flight_sim_career_mode.flight.route;
 
 import lombok.AllArgsConstructor;
-import org.example.flight_sim_career_mode.airport.entity.Airport;
-import org.example.flight_sim_career_mode.airport.service.AirportService;
-import org.example.flight_sim_career_mode.pilot.model.entity.Pilot;
-import org.example.flight_sim_career_mode.plane.Plane;
+import org.example.flight_sim_career_mode.flight.airport.entity.Airport;
+import org.example.flight_sim_career_mode.flight.airport.service.AirportService;
+import org.example.flight_sim_career_mode.pilot.model.Pilot;
+import org.example.flight_sim_career_mode.flight.plane.Plane;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -19,7 +19,7 @@ public class RouteGenerator {
     private final AirportService airportService;
     private static final Random random = new Random();
 
-    public Flight createLocalFlightRoute(Plane plane, Pilot pilot){
+    public Route createLocalFlightRoute(Plane plane, Pilot pilot){
         boolean validFlight;
         List<Airport> airports = airportService.findAllAirportsByCountry(pilot.getCountryOfOrigin());
         if(airports.size() <= 0) {
@@ -32,15 +32,15 @@ public class RouteGenerator {
             airport2 = airports.get(random.nextInt(airports.size()));
 
             //flight must be under 8 hours
-            validFlight = GenerateFlightUtils.calculateFlightHours(
+            validFlight = GenerateRouteUtils.calculateFlightHours(
                     plane.getPlaneSpeedInKnots(),
-                    GenerateFlightUtils.calculateFlightDistanceInMiles(airport1, airport2)) < 5.0;
+                    GenerateRouteUtils.calculateFlightDistanceInMiles(airport1, airport2)) < 5.0;
         }while (!validFlight);
 
-        return new Flight(airport1, airport2, pilot, plane, "Story");
+        return new Route(airport1, airport2, plane.getPlaneSpeedInKnots());
     }
 
-    public Flight createProFlightRoute(Plane plane, Pilot pilot){
+    public Route createProFlightRoute(Plane plane, Pilot pilot){
         boolean validFlight;
         List<Airport> airports = airportService.findAllAirports();
         Airport airport1;
@@ -50,15 +50,15 @@ public class RouteGenerator {
             airport2 = airports.get(random.nextInt(airports.size()));
 
             //flight must be under 8 hours
-            validFlight = GenerateFlightUtils.calculateFlightHours(
+            validFlight = GenerateRouteUtils.calculateFlightHours(
                     plane.getPlaneSpeedInKnots(),
-                    GenerateFlightUtils.calculateFlightDistanceInMiles(airport1, airport2)) < 5.0;
+                    GenerateRouteUtils.calculateFlightDistanceInMiles(airport1, airport2)) < 5.0;
         }while (!validFlight);
 
-        return new Flight(airport1, airport2, pilot, plane, "Story");
+        return new Route(airport1, airport2, plane.getPlaneSpeedInKnots());
     }
 
-    public Flight createCommercialFlightRoute(Plane plane, Pilot pilot){
+    public Route createCommercialFlightRoute(Plane plane, Pilot pilot){
         boolean validFlight;
         List<Airport> airports = airportService.findAllAirportsBySize("large");
         Airport airport1;
@@ -68,11 +68,11 @@ public class RouteGenerator {
             airport2 = airports.get(random.nextInt(airports.size()));
 
             //flight must be under 8 hours
-            validFlight = GenerateFlightUtils.calculateFlightHours(
+            validFlight = GenerateRouteUtils.calculateFlightHours(
                     plane.getPlaneSpeedInKnots(),
-                    GenerateFlightUtils.calculateFlightDistanceInMiles(airport1, airport2)) < 8.0;
+                    GenerateRouteUtils.calculateFlightDistanceInMiles(airport1, airport2)) < 8.0;
         }while (!validFlight);
 
-        return new Flight(airport1, airport2, pilot, plane, "Story");
+        return new Route(airport1, airport2, plane.getPlaneSpeedInKnots());
     }
 }

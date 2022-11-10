@@ -1,10 +1,9 @@
-package org.example.flight_sim_career_mode.pilot.model.entity;
+package org.example.flight_sim_career_mode.pilot.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.example.flight_sim_career_mode.pilot.enums.License;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -22,9 +21,6 @@ public class Pilot {
     @Id
     private String name;
 
-    @Column(name = "license")
-    private License license;
-
     @Column(name = "country_of_origin")
     private String countryOfOrigin;
 
@@ -35,13 +31,5 @@ public class Pilot {
         this.name = name;
         this.countryOfOrigin = countryOfOrigin;
         this.balance = 0.0;
-        this.license = License.LOCAL_PILOT;
-    }
-
-    public boolean licenseCanBeUpgraded(License license){
-        if(this.license == license){
-            return false;
-        }
-        return this.balance > license.getCostOfLicense();
     }
 }

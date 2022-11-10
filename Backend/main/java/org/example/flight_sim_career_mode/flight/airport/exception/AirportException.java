@@ -1,4 +1,4 @@
-package org.example.flight_sim_career_mode.airport.exception;
+package org.example.flight_sim_career_mode.flight.airport.exception;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;

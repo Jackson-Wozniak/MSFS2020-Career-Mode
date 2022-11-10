@@ -1,21 +1,13 @@
-package org.example.flight_sim_career_mode.flightgenerator;
+package org.example.flight_sim_career_mode.flight.route;
 
-import org.example.flight_sim_career_mode.airport.entity.Airport;
+import org.example.flight_sim_career_mode.flight.airport.entity.Airport;
 import org.example.flight_sim_career_mode.pilot.enums.License;
-import org.example.flight_sim_career_mode.plane.Plane;
+import org.example.flight_sim_career_mode.flight.plane.Plane;
 
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Random;
 
-public class GenerateFlightUtils {
-
-    private static final Random random = new Random();
-
-    public static Plane getRandomPlaneByLicense(License license){
-        ArrayList<Plane> planes = new ArrayList<>(license.getPlanesByLicense());
-        return planes.get(random.nextInt(planes.size()));
-    }
+public class GenerateRouteUtils {
 
     //Haversine formula for finding distance w/- coordinates
     public static double calculateFlightDistanceInMiles(Airport airport1, Airport airport2){

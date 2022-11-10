@@ -1,8 +1,8 @@
-package org.example.flight_sim_career_mode.airport.configuration;
+package org.example.flight_sim_career_mode.flight.airport.configuration;
 
 import lombok.AllArgsConstructor;
-import org.example.flight_sim_career_mode.airport.entity.Airport;
-import org.example.flight_sim_career_mode.airport.service.AirportService;
+import org.example.flight_sim_career_mode.flight.airport.entity.Airport;
+import org.example.flight_sim_career_mode.flight.airport.service.AirportService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

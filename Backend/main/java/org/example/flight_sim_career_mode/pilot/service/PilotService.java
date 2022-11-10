@@ -1,12 +1,10 @@
 package org.example.flight_sim_career_mode.pilot.service;
 
 import lombok.AllArgsConstructor;
-import org.example.flight_sim_career_mode.pilot.enums.License;
-import org.example.flight_sim_career_mode.pilot.exception.LicenseException;
 import org.example.flight_sim_career_mode.pilot.exception.PilotAlreadyCreatedException;
 import org.example.flight_sim_career_mode.pilot.exception.PilotNotFoundException;
-import org.example.flight_sim_career_mode.pilot.model.entity.Pilot;
 import org.example.flight_sim_career_mode.pilot.repository.PilotRepository;
+import org.example.flight_sim_career_mode.pilot.model.Pilot;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -24,15 +22,6 @@ public class PilotService {
 
     public void updatePilot(Pilot pilot){
         pilotRepository.save(pilot);
-    }
-
-    public void upgradePilotLicense(Pilot pilot, License license){
-        if(pilot.licenseCanBeUpgraded(license)){
-            pilot.setLicense(license);
-            pilotRepository.save(pilot);
-        }
-        //or else
-        throw new LicenseException("Pilot does not have the credentials to upgrade license");
     }
 
     public void saveNewPilot(Pilot pilot){

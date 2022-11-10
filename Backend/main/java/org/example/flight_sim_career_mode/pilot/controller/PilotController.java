@@ -2,7 +2,7 @@ package org.example.flight_sim_career_mode.pilot.controller;
 
 import lombok.AllArgsConstructor;
 import org.example.flight_sim_career_mode.pilot.service.PilotService;
-import org.example.flight_sim_career_mode.pilot.model.entity.Pilot;
+import org.example.flight_sim_career_mode.pilot.model.Pilot;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;

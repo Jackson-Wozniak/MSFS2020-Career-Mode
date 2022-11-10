@@ -1,22 +1,20 @@
-package org.example.flight_sim_career_mode.flightgenerator;
+package org.example.flight_sim_career_mode.flight.route;
 
 import lombok.AllArgsConstructor;
 import org.example.flight_sim_career_mode.pilot.enums.License;
-import org.example.flight_sim_career_mode.pilot.model.entity.Pilot;
-import org.example.flight_sim_career_mode.plane.Plane;
+import org.example.flight_sim_career_mode.pilot.model.Pilot;
+import org.example.flight_sim_career_mode.flight.plane.Plane;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import java.util.Random;
-
 @Component
 @AllArgsConstructor
-public class GenerateFlight {
+public class GenerateRoute {
 
     @Autowired
     private final RouteGenerator routeGenerator;
 
-    public Flight createFlight(Pilot pilot){
+    public Route createFlight(Pilot pilot){
         return switch (pilot.getLicense()){
             case LOCAL_PILOT -> createLocalFlight(pilot);
             case PRO_PILOT -> createProfessionalFlight(pilot);
@@ -24,18 +22,18 @@ public class GenerateFlight {
         };
     }
 
-    private Flight createLocalFlight(Pilot pilot){
-        Plane plane = GenerateFlightUtils.getRandomPlaneByLicense(License.LOCAL_PILOT);
+    private Route createLocalFlight(Pilot pilot){
+        Plane plane = GenerateRouteUtils.getRandomPlaneByLicense(License.LOCAL_PILOT);
         return routeGenerator.createLocalFlightRoute(plane, pilot);
     }
 
-    private Flight createProfessionalFlight(Pilot pilot){
-        Plane plane = GenerateFlightUtils.getRandomPlaneByLicense(License.PRO_PILOT);
+    private Route createProfessionalFlight(Pilot pilot){
+        Plane plane = GenerateRouteUtils.getRandomPlaneByLicense(License.PRO_PILOT);
         return routeGenerator.createProFlightRoute(plane, pilot);
     }
 
-    private Flight createCommercialFlight(Pilot pilot){
-        Plane plane = GenerateFlightUtils.getRandomPlaneByLicense(License.COMMERCIAL_PILOT);
+    private Route createCommercialFlight(Pilot pilot){
+        Plane plane = GenerateRouteUtils.getRandomPlaneByLicense(License.COMMERCIAL_PILOT);
         return routeGenerator.createCommercialFlightRoute(plane, pilot);
     }
 }
