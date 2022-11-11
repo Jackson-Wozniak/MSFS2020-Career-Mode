@@ -4,11 +4,10 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.example.flight_sim_career_mode.license.local.LocalLicense;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity(name = "pilot")
 @Table(name = "pilot")
@@ -16,7 +15,7 @@ import javax.persistence.Table;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class Pilot {
+public class Pilot implements Serializable {
 
     @Id
     private String name;
@@ -26,6 +25,9 @@ public class Pilot {
 
     @Column(name = "balance")
     private Double balance;
+
+    @OneToOne(cascade = CascadeType.ALL, mappedBy = "pilot")
+    private LocalLicense localLicense;
 
     public Pilot(String name, String countryOfOrigin){
         this.name = name;

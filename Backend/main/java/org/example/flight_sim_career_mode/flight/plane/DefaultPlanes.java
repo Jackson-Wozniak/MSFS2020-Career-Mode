@@ -5,9 +5,7 @@ import java.util.List;
 
 public class DefaultPlanes {
 
-    private static final List<Plane> propellerPlanes = List.of(
-            new Plane("Cessna 152", 120, 477, PlaneType.PROPELLER)
-    );
+    public static final Plane c152 = new Plane("Cessna 152", 120, 477, PlaneType.PROPELLER);
 
     private static final List<Plane> turboPropPlanes = List.of(
             new Plane("TBM Daher 930", 330, 989, PlaneType.TURBOPROP)

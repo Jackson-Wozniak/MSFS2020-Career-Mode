@@ -30,6 +30,10 @@ public class AirportService {
         return airportRepository.findAll();
     }
 
+    public Airport findRandomAirport(){
+        return airportRepository.findRandomAirport();
+    }
+
     public List<Airport> findAllAirportsBySize(String size){
         return airportRepository.findAll().stream()
                 .filter(airport -> airport.getSize().equalsIgnoreCase(size))
