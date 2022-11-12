@@ -7,6 +7,11 @@ import org.example.flight_sim_career_mode.pilot.model.Pilot;
 
 import javax.persistence.*;
 
+/*
+Entity to track the progress of the local license path for pilots.
+Each pilot completes flights that will add to the payout, and can
+buy/rent new planes to complete more flights with
+ */
 @Entity(name = "LocalLicense")
 @Table(name = "local_license")
 @Getter

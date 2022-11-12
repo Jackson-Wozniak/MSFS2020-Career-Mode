@@ -18,4 +18,5 @@ public class Plane {
     private Integer planeSpeedInKnots;
     private Integer rangeInMiles;
     private PlaneType planeType;
+    private Integer cargoCapacity;
 }
