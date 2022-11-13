@@ -2,6 +2,7 @@ package org.example.flight_sim_career_mode.license.local;
 
 import lombok.AllArgsConstructor;
 import org.example.flight_sim_career_mode.flight.plane.Plane;
+import org.example.flight_sim_career_mode.flight.route.GenerateRouteUtils;
 import org.example.flight_sim_career_mode.flight.route.Route;
 import org.springframework.stereotype.Component;
 
@@ -16,7 +17,9 @@ public class LocalMissionGenerator {
         LocalMission localMission = new LocalMission();
         localMission.setCargo(DefaultCargo.getRandomCargoMaterial());
         localMission.setWeightOfCargo(DefaultCargo.getRandomCargoWeight(plane));
-        localMission.setPayout(100.0);
+        localMission.setPayout(PayoutCalculator.getFlightPayout(localMission,
+                GenerateRouteUtils.calculateFlightHours(
+                        plane.getPlaneSpeedInKnots(), route.getFlightDistance())));
         localMission.setMissionStory(
             LocalMissionStories.findRandomStory(
                     localMission.getCargo(),

@@ -18,7 +18,7 @@ public class LocalMissionStories {
     private static final File foodFile = new File("Text_Files/stories/local/Food.txt");
     private static final File phoneFile = new File("Text_Files/stories/local/Phone.txt");
     private static final File goldFile = new File("Text_Files/stories/local/Gold.txt");
-    private static final File microchipFile = new File("Text_Files/stories/local/MicroChip.txt");
+    private static final File microchipFile = new File("Text_Files/stories/local/Microchip.txt");
     private static final File heavyMachineryFile = new File("Text_Files/stories/local/HeavyMachinery.txt");
     private static final File noCargoFile = new File("Text_Files/stories/local/NoCargo.txt");
 
@@ -44,6 +44,9 @@ public class LocalMissionStories {
     }
 
     public static String findMissionStory(List<String> lines){
+        if(lines.size() == 0){
+            return "";
+        }
         return lines.get(random.nextInt(lines.size()));
     }
 

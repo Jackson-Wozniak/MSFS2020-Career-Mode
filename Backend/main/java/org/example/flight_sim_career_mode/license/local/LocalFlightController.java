@@ -24,7 +24,7 @@ public class LocalFlightController {
 
     @RequestMapping()
     public LocalFlight createLocalFlight() throws IOException {
-        Pilot pilot = new Pilot("Test", "US");
+        Pilot pilot = new Pilot("Test", "United States");
         return localFlightGenerator.createLocalFlight(pilot, DefaultPlanes.c152);
     }
 }

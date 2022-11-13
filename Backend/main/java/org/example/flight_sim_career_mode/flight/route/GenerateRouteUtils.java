@@ -2,6 +2,8 @@ package org.example.flight_sim_career_mode.flight.route;
 
 import org.example.flight_sim_career_mode.flight.airport.entity.Airport;
 
+import java.math.BigDecimal;
+
 public class GenerateRouteUtils {
 
     //Haversine formula for finding distance w/- coordinates

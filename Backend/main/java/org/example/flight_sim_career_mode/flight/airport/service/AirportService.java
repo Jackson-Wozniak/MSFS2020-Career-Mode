@@ -40,6 +40,19 @@ public class AirportService {
                 .collect(Collectors.toList());
     }
 
+    public List<Airport> findAllAirportsExcludingSize(String excluded){
+        return airportRepository.findAll().stream()
+                .filter(airport -> !airport.getSize().equalsIgnoreCase(excluded))
+                .collect(Collectors.toList());
+    }
+
+    public List<Airport> findAllAirportsExcludingSizeByCountry(String excluded, String countryOfOrigin){
+        return airportRepository.findAll().stream()
+                .filter(airport -> !airport.getSize().equalsIgnoreCase(excluded)
+                        && airport.getCountry().equalsIgnoreCase(countryOfOrigin))
+                .collect(Collectors.toList());
+    }
+
     public List<Airport> findAllAirportsByCountry(String country){
         return airportRepository.findAll().stream()
                 .filter(airport -> airport.getCountry().equalsIgnoreCase(country))

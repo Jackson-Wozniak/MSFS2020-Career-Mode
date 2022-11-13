@@ -14,7 +14,7 @@ public class DefaultCargo {
         new Cargo("Lumber", 1.1),
         new Cargo("Food", 1.1),
         new Cargo("Phones", 1.4),
-        new Cargo("Gold", 1.9),
+        new Cargo("Gold.txt", 1.9),
         new Cargo("Microchips", 1.7),
         new Cargo("Heavy_Machinery", 1.3),
         //none is used for connecting/travel flights that do not give payout

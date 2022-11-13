@@ -28,13 +28,11 @@ public class LocalFlightGenerator {
     public LocalFlight createLocalFlight(Pilot pilot, Plane plane) throws IOException {
         LocalFlight currentFlight = new LocalFlight();
         List<Airport> countryOfOriginAirports =
-                airportService.findAllAirportsByCountry(pilot.getCountryOfOrigin());
-        if(countryOfOriginAirports.size() < 5){
-            countryOfOriginAirports = airportService.findAllAirports();
-        }
+                //exclude large airports from search for local routes
+                airportService.findAllAirportsExcludingSizeByCountry("Large", pilot.getCountryOfOrigin());
         currentFlight.setPlane(plane);
-        currentFlight.setRoute(routeGenerator.createDomesticFlight(
-                plane, pilot.getCountryOfOrigin(), 5));
+        currentFlight.setRoute(routeGenerator.createRandomRouteWithList(
+                plane, countryOfOriginAirports, 5));
         currentFlight.setLocalMission(
                 localMissionGenerator.createLocalMission(currentFlight.getRoute(), plane));
         return currentFlight;
