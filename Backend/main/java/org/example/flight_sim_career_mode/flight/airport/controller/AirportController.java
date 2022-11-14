@@ -2,6 +2,7 @@ package org.example.flight_sim_career_mode.flight.airport.controller;
 
 import lombok.AllArgsConstructor;
 import org.example.flight_sim_career_mode.flight.airport.service.AirportService;
+import org.example.flight_sim_career_mode.flight.airport.utils.CountriesOfOrigin;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -20,6 +21,6 @@ public class AirportController {
     //These are the only countries that pilots can use for country of origin
     @RequestMapping(value = "/countries")
     public List<String> getCountriesForPilots(){
-        return null;
+        return CountriesOfOrigin.findValidCountriesOfOrigin(airportService.findAllAirports());
     }
 }

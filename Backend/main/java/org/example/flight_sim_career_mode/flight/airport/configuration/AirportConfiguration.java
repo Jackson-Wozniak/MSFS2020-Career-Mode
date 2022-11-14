@@ -29,10 +29,6 @@ public class AirportConfiguration {
 
     @PostConstruct
     public void findDatabaseSizeOnStartup(){
-        airportService.findAllAirports().forEach(airport -> {
-            System.out.println(airport.getCountry());
-            System.out.println(airport.getContinent());
-        });
         if(airportService.findDatabaseRowCount() < 44304){
             logger.info("Saving Airports");
             try{
