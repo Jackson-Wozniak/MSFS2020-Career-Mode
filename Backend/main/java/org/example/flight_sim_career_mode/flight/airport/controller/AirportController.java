@@ -19,8 +19,9 @@ public class AirportController {
 
     //Filter all airports in DB to find countries that contain at least 100 airports
     //These are the only countries that pilots can use for country of origin
+    //This ensures there are enough routes to fly
     @RequestMapping(value = "/countries")
     public List<String> getCountriesForPilots(){
-        return CountriesOfOrigin.findValidCountriesOfOrigin(airportService.findAllAirports());
+        return CountriesOfOrigin.findCountriesWithEnoughAirports(airportService.findAllAirports());
     }
 }

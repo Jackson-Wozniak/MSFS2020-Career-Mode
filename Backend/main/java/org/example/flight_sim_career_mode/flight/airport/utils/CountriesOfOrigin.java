@@ -3,12 +3,11 @@ package org.example.flight_sim_career_mode.flight.airport.utils;
 import org.example.flight_sim_career_mode.flight.airport.entity.Airport;
 
 import java.util.*;
-import java.util.stream.Collectors;
 
 public class CountriesOfOrigin {
 
     //return all countries with 100+ airports
-    public static List<String> findValidCountriesOfOrigin(List<Airport> airports){
+    public static List<String> findCountries(List<Airport> airports){
         Map<String, Integer> countries = new HashMap<>();
         for(Airport airport : airports){
            String country = airport.getCountry();
