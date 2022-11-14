@@ -7,7 +7,7 @@ import java.util.*;
 public class CountriesOfOrigin {
 
     //return all countries with 100+ airports
-    public static List<String> findCountries(List<Airport> airports){
+    public static List<String> findCountriesWithEnoughAirports(List<Airport> airports){
         Map<String, Integer> countries = new HashMap<>();
         for(Airport airport : airports){
            String country = airport.getCountry();
